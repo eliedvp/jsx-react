@@ -1,0 +1,163 @@
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffefe; /* Un fond doux pour la mise en valeur */
+}
+
+/*
+  Animations
+  ----------
+*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+  Carte Produit
+  -------------
+  Ajout d'un dégradé, d'une ombre élégante, de coins arrondis et d'animations au survol.
+*/
+.product-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px; /* Coins arrondis plus prononcés */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombre plus élégante */
+  background: linear-gradient(145deg, #ffffff, #f0f2f5); /* Dégradé subtil */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  animation: fadeIn 1s ease-out;
+}
+
+.product-card:hover {
+  transform: translateY(-10px); /* Effet de 'lévitation' au survol */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.product-card .card-body {
+  padding: 30px;
+  text-align: left;
+}
+
+/* Composants internes
+  -------------------
+*/
+.product-card .card-body .name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.product-card .card-body .price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #007bff; /* Couleur principale pour le prix */
+  margin-bottom: 15px;
+  animation: fadeIn 1.4s ease-out;
+}
+
+.product-card .card-body .description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  animation: fadeIn 1.6s ease-out;
+}
+
+.product-card img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05); /* Zoom sur l'image au survol */
+}
+
+/*
+  Bouton d'appel à l'action (CTA)
+  ------------------------------
+*/
+.cta-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: scale(1.02);
+}
+
+/*
+  Badge de Salutation
+  -------------------
+  Positionnement fixe pour un effet de superposition.
+*/
+.greeting-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(45deg, #007bff, #00aaff); /* Dégradé pour le badge */
+  color: #fff;
+  z-index: 10;
+  animation: fadeIn 1s ease-in;
+}
+
+.greeting-badge .avatar-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
+
+/*
+  Responsive Design
+  -----------------
+  Mise en page en grille fluide sur les petits écrans.
+*/
+@media (max-width: 768px) {
+  .app-container {
+    padding: 20px;
+  }
+  
+  .product-card {
+    max-width: 100%;
+  }
+
+  .greeting-badge {
+    top: 10px;
+    right: 10px;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .greeting-badge .avatar-badge {
+    width: 30px;
+    height: 30px;
+  }
+}
